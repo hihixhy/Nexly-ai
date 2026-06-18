@@ -21,8 +21,8 @@ public class AIController {
     private AIService aiService;
 
     @PostMapping("/generate")
-    public Result<GenerateCodeResponse> generate(@RequestBody GenerateCodeRequest request) {
-        String code = aiService.generateCode(request.getPrompt());
-        return Result.success(new GenerateCodeResponse(code));
+    public Result<String> generate(@RequestBody GenerateCodeRequest request) {
+        String result = aiService.generateCode(request.getPrompt());
+        return Result.success(result);
     }
 }
